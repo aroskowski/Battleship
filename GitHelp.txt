@@ -1,0 +1,8 @@
+To add a new file:
+    git add <file>
+    git commit -m "message"
+    git push
+
+Update existing file:
+    git commit -m "message"
+    git push
