@@ -1,6 +1,7 @@
 //#include "BATTLESHIP_H"
 #include <iomanip>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -24,11 +25,19 @@ int main(){
 }
 
 void PrintBoard(){
-    for(int i = 0, i <= 10; i++){
-        printf("    0   1   2   3   4   5   6   7   8   9   ");
-        for(int j = 0; j <= 10; j++){
-            printf("A");
+    vector<char> Board(100, 'O'); //temp board of all empty spaces !!!
 
+    printf("   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n");
+    printf("============================================\n");
+    for(int i = 0; i < 10; i++){
+        printf("%c  |", 65+i); //
+        for(int j = 0; j < 10; j++){
+            printf(" %c |", Board[10*i+j]);
+            /*
+            Here we will print our board map/vector
+             - are we printing both sets of ships of just players?
+            */
         }
+        printf("\n");
     }    
 }
