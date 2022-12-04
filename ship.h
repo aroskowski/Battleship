@@ -1,4 +1,3 @@
-//Anika Roskowski - partner Austin Strobel
 #ifndef SHIP_H
 #define SHIP_H
 
@@ -6,12 +5,14 @@
 
 class Ship{
 	public:
-		Ship(int, int, int, std::string);//col, row, size, direction
+		Ship(int);//size
 		Ship(const Ship &);//if passing into function by value 
 		~Ship(); //if using new
 
-		int getShipLoc(); //1d vector for board start loccation = row*size + col
-		int shipBeenHit(); //inc hits //calls isShipDead()
+        void placeShip(int, std::string);
+        int getShipLength();
+		int getShipLoc(int, int, std::string); //1d vector for board start loccation = row*size + col
+		void shipBeenHit(); //inc hits //calls isShipDead()
 		bool isShipDead();
 
 	private:
