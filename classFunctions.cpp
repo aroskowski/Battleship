@@ -7,14 +7,16 @@
 
 using namespace std;
 
-Board::Board(int size = 10){
-    Ship Five(5);
-    Ship Four(4);
-    Ship Three1(3);
-    Ship Three2(3);
-    Ship Two(2);
+Board::Board(int size=10){
+    Ship ship(5); //ship of size 5
+//    Ship Four(4);
+//    Ship Three1(3);
+//    Ship Three2(3);
+//    Ship Two(2);
 }
-int Board::getSize() {return size; }
+int Board::getSize() {
+    return size; 
+}
 
 void Board::emptyBoard(){
     for(int i = 0; i < 100; i++){
@@ -42,7 +44,13 @@ void Board::placeShip(Ship ship, int xCord, int yCord, string direction){
 }
 
 void Board::shotFired(int BoardLoc){ 
-    
+    if(board[BoardLoc] == '*'){
+        board[BoardLoc] = 'X';
+        
+    } else if (board[BoardLoc] == '-'){
+        board[BoardLoc] = 'O';
+        
+    }
 }
 
 Ship::Ship(int size){

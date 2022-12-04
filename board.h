@@ -19,6 +19,11 @@ class Board{
 						//decriment numShips;
 		
 		//Ship getShips(int); // helper function to return ship location 
+	//  Ship ship();
+	//	Ship ship2();
+	//	Ship ship3();
+	//	Ship ship4();
+	//	Ship ship5();
 
 	private:
 		int numShips; //starts at 5 when 
