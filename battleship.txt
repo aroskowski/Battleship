@@ -11,7 +11,11 @@ Rules:
 	>p1 sees ships they placed overlaid with p2 guesses/attacks (lower display),  and their attacks (upper display)
 	>same thing for p2. This will be the second board of the game. 
 - ships only placed vertically or horizontally 
-- cannot move ships after game has started 
+- cannot move ships after game has started
+- empty space = '-'
+- ship space = '*"
+- missed = "O"
+- hit = "X" 
 
 10x10 board = 5 ships  1x 5, 1x 4, 2x 3, 1x 2
 8x8 board = same ships 
