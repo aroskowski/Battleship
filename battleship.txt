@@ -1,0 +1,81 @@
+Anika Roskowski 10/26/2022, last edited 11/1/2022
+Partnered with Austin Strobel
+
+=============================================
+Classic Battleship Game - overview and report
+=============================================
+
+Rules:
+- user pick cords to try and hit other persons ships 
+- other board invisible - 2 boards in the game
+	>p1 sees ships they placed overlaid with p2 guesses/attacks (lower display),  and their attacks (upper display)
+	>same thing for p2. This will be the second board of the game. 
+- ships only placed vertically or horizontally 
+- cannot move ships after game has started 
+
+10x10 board = 5 ships  1x 5, 1x 4, 2x 3, 1x 2
+8x8 board = same ships 
+7x7 board = same ships 
+
+General ideas:
+- Board can be 7x7, 8x8, or 10x10 in size
+	- 4 ships to any board size
+- Show player
+	- 2 boards: one theirs with their ships logging where the other user has hit/missed
+				second is other persons board (without ships) logging player hit and misses 
+			*this is why we need map - bools store ships - ints/chars store where they have attacked
+
+Report:
+- Description of member functions
+	Ship.h: 
+		Rule of 3s for Ships - needed cause we will (most likely) be using new in placeShips() in board 
+			constructor, copy constructor, deconstructor for ship object
+		getShipLoc() - returns ship location on 1d vector board = row*size + col
+		shipBeenHit() - increment numHits -- call isShipDead()
+		isShipDead() - is numHits == length return true
+	Board.h:
+		getSize() - return user/default defined board size
+		placeShip() - for a known ship size create a new ship object and place it on board at user given
+				*Error check placement off board or is placed on another ship
+		shotFired() - attacks set board location and checks for hit/miss -- call shipBeenHit() 
+		   - if isShipDead() = true -- decrement numShips and print "death message"
+				*Error check invalid/repeated shot location
+	- what could go wrong? where can this get stuck?
+		Errors can happen when user specifies locations. 
+		place ship - check start location first then direction and all subsequent spaces
+
+- Pros and Cons of Object Oriented Code (classes) in this idea
+	Ships:
+		- Having ships as objects allow us to make multiple ships and place them in new spots with ease
+	Board:
+		- easy to make board
+		- easier to read then highly complex main function
+		
+- Describe the data structure you plan to use and why it is useful
+	Map of ints and bools. 
+		Bools store locations of ships (True = ship, False = open water)
+		Ints (or chars) store "empty" nonattacked spaces, "misses" attacked but not hit spaces, and hit spaces
+	- Make sure you have a reason for your choice 
+		*a map makes more sense to me as there are two "layers" of simultaneous data that need to be stored/displayed
+		
+- What could you use as test cases? 
+	- Best method would be to split this into multiple parts similar to some of our past labs - defined/expected behaviour
+	Part1 -  making the board and displaying it 
+		- Using the board class make a board and display it with 3 different characters (empty, miss, and hit)
+			* test through common sense. This is mostly a yes or no type functionality code
+			* does the board display? is it useable to play?
+	Part2 - make and place ships
+		- Using board and Ship classes make a board and place ships of size 2, 3, 4, & 5. 
+			* can you place in every direction? do the ships display to the board?
+			* what happens when ship is placed outside the board? (entire ship, start location, any subsequent spaces)
+	Part3 - Attacking/Finishing up
+		- Using Board and Ship classes, can the user actually play the game?
+			* More error checking for invalid locations - make sure characters change to display empty/miss/hit tiles
+			* Player Turn system/Computer character to play against
+			* test through playing the game!
+
+	Overall Testing:
+		Shorter (manual entry) fixed games would be beneficial as most of us know the game of battleship
+		Similar to connect 4, test with an input text file for known outputs 
+			-this may be tedious with the display system - so the overall results may have to be outputted elsewhere 
+				where display goes to user but the result/errors go to a output file?
