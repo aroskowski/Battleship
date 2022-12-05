@@ -1,0 +1,20 @@
+Final Lab: Austin Strobel and Anika Roskowski
+Battleship Game
+
+The first 4 hours of this project where spent trying to figure out how to use github and how to compile c++ on our computers. 
+Austin still cannot compile c++ on his computer.
+After much trial and tribulation we were able to get it working by creating a live collaboration from Anika's computer through SSH. 
+  This means that all work had to be done collaboratively, at the same time. 
+  
+Tasks:
+  Ship.h
+  Board.h
+  ClassFunctions.cpp
+  Battleship.cpp
+
+Ship.h, Board.h, and ClassFunctions.cpp - 3 hours each
+  ClassFunctions.cpp hold both sets of functions.
+  12/4 still need to polish up Board::placeShip
+  
+Battleship.cpp - 1 hour
+  12/4 Have most things templated but needs a lot of work. 
