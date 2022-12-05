@@ -1,6 +1,6 @@
-//#include "board.h"
-//#include "ship.h"
-#include "classFunctions.cpp"
+#include "board.h"
+#include "ship.h"
+//#include "classFunctions.cpp"
 
 #include <iomanip>
 #include <iostream>
@@ -29,7 +29,7 @@ int main(){
     while(play == 'y' && !win){
         printf("Welcome to the game!\n Rules:\nAll entries should be lowercase one character long.\n");
         PrintBoard();
-        printf("Please place your Carrier (5 spaces long). Enter row charater, colomn number, and orientation ");
+        printf("Please place your Carrier (5 spaces long). Enter row charater, column number, and orientation "); 
         scanf("%i %i %s", xPos, yPos, direction);
     //    playerBoard.placeShip(playerBoard.ship(), xPos, yPos, direction);
         win = true; //exit case

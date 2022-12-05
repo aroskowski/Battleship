@@ -1,13 +1,16 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "ship.h"
+
 #include <vector>
 #include <string>
 
 class Board{
 	public: 
-		Board(int = 10); // default board size 10
-		
+		Board();
+		Board(int); // default board size 10
+
 		int getSize(); //user defined board -- size varies num ships 
 		void emptyBoard(); //initiallizes board to all open water
 		void placeShip(Ship, int, int, std::string); //known size ship
@@ -30,7 +33,7 @@ class Board{
 		int size;
 		
 		std::vector<char> board; //- is empty, * is ship, X is hit 
-		std::vector<char>:: iterator itr; //know where we are in the map 
+	//	std::vector<char>:: iterator itr; //know where we are in the map 
 
 };
 #endif

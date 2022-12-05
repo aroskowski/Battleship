@@ -6,11 +6,14 @@
 class Ship{
 	public:
 		Ship(int);//size
-		Ship(const Ship &);//if passing into function by value 
-		~Ship(); //if using new
+		//Ship(const Ship &){} 
+		//if passing into function by value 
+		~Ship(){} //if using new
 
         void placeShip(int, std::string);
-        int getShipLength();
+        int getShipLength(){
+			return length;
+		}
 		int getShipLoc(int, int, std::string); //1d vector for board start loccation = row*size + col
 		void shipBeenHit(); //inc hits //calls isShipDead()
 		bool isShipDead();
