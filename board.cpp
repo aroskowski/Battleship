@@ -20,7 +20,7 @@ int Board::getSize() {
 
 void Board::emptyBoard(){
     for(int i = 0; i < 100; i++){
-        board[i] = '-';
+        board.push_back('-');
     }
 }
 

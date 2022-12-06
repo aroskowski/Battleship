@@ -5,15 +5,19 @@ The first 4 hours of this project where spent trying to figure out how to use gi
 Austin still cannot compile c++ on his computer.
 After much trial and tribulation we were able to get it working by creating a live collaboration from Anika's computer through SSH. 
   This means that all work had to be done collaboratively, at the same time. 
-  
+
+We also can work separately with Anika using VS Code and Austin using the Hydra machines. We both SSH into our Github repo to push and pull. 
+
 Tasks:
   Ship.h
   Board.h
   ClassFunctions.cpp
   Battleship.cpp
+  User Interface - Austin
+  placeShips() - Anika
 
-Ship.h, Board.h, and ClassFunctions.cpp - 3 hours each
-  ClassFunctions.cpp hold both sets of functions.
+Ship.h, Board.h, Board.cpp, and Ship.cpp - 3 hours each
+  ClassFunctions.cpp hold both sets of functions --> ClassFunctions.cpp got split into Ship.cpp and Board.cpp
   12/4 still need to polish up Board::placeShip
   
 Battleship.cpp - 1 hour

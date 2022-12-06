@@ -26,11 +26,16 @@ int main(){
 	playBoard->emptyBoard();
 	oppBoard->emptyBoard();
 
-	printf("Would you like to play a game of battleship? (y or n)");
+	printf("Would you like to play a game of battleship? (Type y or n): ");
 	cin >> play;
 	while(play == 'y' && !win){
-		printf("Welcome to the game!\n Rules:\nAll entries should be lowercase one character long.\n");
+		cout << "Welcome to Battleship!" << endl << "The rules are simple: all entries should be lowercase and one character long" << endl;
+		//printf("Welcome to the game!" << endl << Rules: All entries should be lowercase one character long.\n");
+		cout << endl << "Your board: " << endl;
 		PrintBoard();
+		cout << endl << "Opponent's board: " << endl;
+		PrintBoard();
+		cout << endl;
 		printf("Please place your Carrier (5 spaces long). Enter row charater, column number, and orientation "); 
 		scanf("%i %i", &xPos, &yPos);
 		cin >> direction;
@@ -74,7 +79,8 @@ bool PlayerTurn(int turn){
 		if (turn % 2 == 0){
 			playerTurn = true;
 		}
-		return playerTurn;
 	}
+	return playerTurn;
+	//cant return in a while loop since you may never enter the while loop
 }
 
