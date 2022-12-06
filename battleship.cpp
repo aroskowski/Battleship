@@ -70,7 +70,7 @@ bool PlayerTurn(int turn){
         if (turn % 2 == 0){
             playerTurn = true;
         }
-        return playerTurn;
     }
+    return playerTurn;
 }
     
