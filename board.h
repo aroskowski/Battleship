@@ -11,6 +11,8 @@ class Board{
 		Board();
 		Board(int); // default board size 10
 
+		void PrintBoard();
+		//member function used to print out each player's individual board
 		int getSize(); //user defined board -- size varies num ships 
 		void emptyBoard(); //initiallizes board to all open water
 		void placeShip(Ship, int, int, std::string); //known size ship

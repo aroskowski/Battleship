@@ -23,23 +23,29 @@ int main(){
 	Board *oppBoard;
 	oppBoard = new Board;
 
-	playBoard->emptyBoard();
-	oppBoard->emptyBoard();
-
 	printf("Would you like to play a game of battleship? (Type y or n): ");
 	cin >> play;
+	
+	//playBoard->emptyBoard();
+	//oppBoard->emptyBoard();
+
 	while(play == 'y' && !win){
 		cout << "Welcome to Battleship!" << endl << "The rules are simple: all entries should be lowercase and one character long" << endl;
 		//printf("Welcome to the game!" << endl << Rules: All entries should be lowercase one character long.\n");
 		cout << endl << "Your board: " << endl;
-		PrintBoard();
+		playBoard->emptyBoard(); //player's Board
 		cout << endl << "Opponent's board: " << endl;
-		PrintBoard();
+		oppBoard->emptyBoard(); //opponent's Board
 		cout << endl;
-		printf("Please place your Carrier (5 spaces long). Enter row charater, column number, and orientation "); 
-		scanf("%i %i", &xPos, &yPos);
-		cin >> direction;
-		//    playerBoard.placeShip(playerBoard.ship(), xPos, yPos, direction);
+		printf("Please place your Carrier (5 spaces long). \n\tEnter row charater (A-J), single digit column number (0-9), and direction (full word and capitalized, ex. \"North\"): "); 
+		//scanf("%i %i", &xPos, &yPos);
+		//cin >> direction;
+		cin >> xPos >> yPos >> direction;
+
+		//xPos = 
+		playBoard->placeShip(5, xPos - 65, yPos, direction);
+		playBoard->PrintBoard();
+		cout << endl;
 		win = true; //exit case
 	}
 
@@ -50,6 +56,7 @@ int main(){
 	return 0;
 }
 
+/*
 void PrintBoard(){
 	vector<char> Board(100, 'O'); //temp board of all empty spaces !!!
 
@@ -59,14 +66,13 @@ void PrintBoard(){
 		printf("%c  |", 65+i); //
 		for(int j = 0; j < 10; j++){
 			printf(" %c |", Board[10*i+j]);
-			/*
-			   Here we will print our board map/vector
-			   - are we printing both sets of ships of just players?
-			   */
+			
+			//   Here we will print our board map/vector
+			//   - are we printing both sets of ships of just players?
 		}
 		printf("\n");
 	}    
-}
+}*/
 
 bool PlayerTurn(int turn){
 	bool playerTurn = false;
