@@ -55,24 +55,25 @@ int main(){
 
 			//playBoard->placeShip(5, xPos, yPos, direction);
 			//playBoard->PrintBoard();
-		}while(!playBoard->placeShip(5, xPos, yPos, direction));
+		}
+		while(!playBoard->placeShip(5, xPos, yPos, direction));
+		
+		//place ships until successful placement with random number generator
 		while(!oppBoard->placeShip(5, RandomNumber(), RandomNumber(), "East")){
-			continue;
+			printf("Hello!");
 		}
 		
 		printf("\nYour board: \n");
 		playBoard->PrintBoard();
 		printf("\nOpponent's board: \n");
 		oppBoard->PrintBoard();
-		//printf("H\n");
-
-		printf("what");
-		cout << "help";
+		printf("\n");
 
 
 		//Play the game! - Fire shots till there is a winner. 
-		while(Turns < 100 && !win){
-			printf("Turn: %i", Turns);
+		while(Turns < 100 || !win){
+			printf("Turn: %i\n", Turns);
+			
 			if(PlayerTurn(Turns)){
 				printf("Please select your target.\n\tEnter row character (A-J) and single digit column number (0-9): ");
 				cin >> inputX >> yPos;
@@ -80,13 +81,20 @@ int main(){
 
 				printf("The target cords are %i, %i.\n", xPos, yPos);
 			
-		
-				playBoard->shotFired(xPos, yPos);
-				playBoard->PrintBoard();
-			}
-			else{
-				oppBoard->shotFired(RandomNumber(), RandomNumber());
+				oppBoard->shotFired(xPos, yPos);
 				oppBoard->PrintBoard();
+		
+				printf("\t Finished Players Turn, starting opponents turn. \n");
+			}
+			//tried with else, else if, and just if: Nothing worked no idea why. pls explain
+			if(!PlayerTurn(Turns)){
+				int x, y;
+				x = RandomNumber();
+				y = RandomNumber();
+				printf("The target cords are %i, %i.\n", x, y);
+
+				playBoard->shotFired(x, y);
+				playBoard->PrintBoard();
 			}
 
 			Turns++;
@@ -104,13 +112,12 @@ int main(){
 }
 
 bool PlayerTurn(int turn){
-	bool playerTurn = false;
 	while (turn < 100) {
 		if (turn % 2 == 0){
-			playerTurn = true;
+			return true;
 		}
 	}
-	return playerTurn;
+	return false;
 	//cant return in a while loop since you may never enter the while loop
 }
 

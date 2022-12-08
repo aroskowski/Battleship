@@ -1,24 +1,38 @@
 Final Lab: Austin Strobel and Anika Roskowski
 Battleship Game
 
-The first 4 hours of this project where spent trying to figure out how to use github and how to compile c++ on our computers. 
-Austin still cannot compile c++ on his computer.
+The first 6 hours of this project where spent trying to figure out how to use github and how to compile c++ on our computers. 
+Austin still cannot compile c++ on his computer. (bin folder is empty????????????)
 After much trial and tribulation we were able to get it working by creating a live collaboration from Anika's computer through SSH. 
   This means that all work had to be done collaboratively, at the same time. 
+
+12/05 we figured out how to ssh to github through the lab machines and were able to start working individually. (with frequent calls)
 
 We also can work separately with Anika using VS Code and Austin using the Hydra machines. We both SSH into our Github repo to push and pull. 
 
 Tasks:
   Ship.h
   Board.h
-  ClassFunctions.cpp
+  Ship.cpp
+  Board.cpp
   Battleship.cpp
-  User Interface - Austin
-  placeShips() - Anika
+  User Interface - Austin (1 hour)
+  placeShips() - Anika (1 hour) Austin (1 hour)
+  ShotFired() - Austin (.5 hour)
+  PlayerTurn() / oppBoard - Anika (2 hours)
+
+  General Error Checking - Anika & Austin (literal years)
+  Epic fight to the death with GitHub and the C++ compiler - Anika & Austin (long enough we both went insane - at least 6 hours)
 
 Ship.h, Board.h, Board.cpp, and Ship.cpp - 3 hours each
   ClassFunctions.cpp hold both sets of functions --> ClassFunctions.cpp got split into Ship.cpp and Board.cpp
   12/4 still need to polish up Board::placeShip
-  
-Battleship.cpp - 1 hour
+  12/8 placeShip is 90% working, but placing out of bounds (where BoardLoc iteratates to a value < 0 or > 99) it gets funky
+  12/8 were not able to get to full extent of ships class
+		Many things did not get implemented here because we only used one ship, we originally planned to have 5 seperate ships. 
+			placing ships - cant place multiple, placing one sometimes runs into issues (see above)
+			ship been hit - currently never called, though hypothetically simple enough
+
+Battleship.cpp - 2 hours each
   12/4 Have most things templated but needs a lot of work. 
+  12/8 Loads of time went into error checking and debugging. 
