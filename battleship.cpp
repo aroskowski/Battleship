@@ -37,16 +37,21 @@ int main(){
 		cout << endl << "Opponent's board: " << endl;
 		oppBoard->emptyBoard(); //opponent's Board
 		cout << endl;
-		printf("Please place your Carrier (5 spaces long). \n\tEnter row charater (A-J), single digit column number (0-9), and direction (full word and capitalized, ex. \"North\"): "); 
-		//scanf("%i %i", &xPos, &yPos);
-		//cin >> direction;
-		cin >> inputX >> yPos >> direction;
-		xPos = inputX - 65;
+		
+		do{
+			printf("Please place your Carrier (5 spaces long). \n\tEnter row charater (A-J), single digit column number (0-9), and direction (full word and capitalized, ex. \"North\"): "); 
+			//scanf("%i %i", &xPos, &yPos);
+			//cin >> direction;
+			cin >> inputX >> yPos >> direction;
+			xPos = inputX - 65;
 
-		printf("the cords are %i, %i.", xPos, yPos);
-		cout << "Facing the " << direction << endl;
+			printf("the cords are %i, %i.", xPos, yPos);
+			cout << "Facing the " << direction << endl;
 
-		playBoard->placeShip(5, xPos, yPos, direction);
+			//playBoard->placeShip(5, xPos, yPos, direction);
+			//playBoard->PrintBoard();
+		}while(!playBoard->placeShip(5, xPos, yPos, direction));
+		
 		playBoard->PrintBoard();
 		
 		//Play the game!

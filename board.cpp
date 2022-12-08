@@ -25,7 +25,7 @@ void Board::emptyBoard(){
 	PrintBoard();
 }
 
-void Board::placeShip(Ship ship, int yCord, int xCord, string direction){
+bool Board::placeShip(Ship ship, int yCord, int xCord, string direction){
 	int change = 0, count = 0;
 	int BoardLoc = yCord*10 + xCord;
 	int rowNum2;
@@ -38,8 +38,8 @@ void Board::placeShip(Ship ship, int yCord, int xCord, string direction){
 		printf("Calculated Board Location is %i\n", BoardLoc);
 
 		if(BoardLoc < 0 || BoardLoc > 99 ){
-			printf("invalid ship placement");
-			return;
+			printf("invalid ship placement. Choose another space. \n");
+			return false;
 		}
 		if (direction == "North" || direction == "South"){
 			change = 10;
@@ -58,7 +58,7 @@ void Board::placeShip(Ship ship, int yCord, int xCord, string direction){
 		if (direction == "East" || direction == "West"){
 			if( rowNum1 != rowNum2){
 				printf("invalid board placement");
-				return;
+				return false;
 			}
 			change = 1;
 			printf("change = 1\n");
@@ -93,6 +93,7 @@ void Board::placeShip(Ship ship, int yCord, int xCord, string direction){
 			}
 		}
 	}
+	return true;
 
 }
 

@@ -15,7 +15,7 @@ class Board{
 		//member function used to print out each player's individual board
 		int getSize(); //user defined board -- size varies num ships 
 		void emptyBoard(); //initiallizes board to all open water
-		void placeShip(Ship, int, int, std::string); //known size ship
+		bool placeShip(Ship, int, int, std::string); //known size ship
 				//give location ship start position, ship size and direction
 				//error check invalid position on board and direction strings
 		void shotFired(int, int); // locate user shot and check if hit/miss
