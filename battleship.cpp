@@ -16,6 +16,7 @@ int main(){
 	bool win = false;
 	char play;
 	int xPos, yPos;
+	char inputX;
 	string direction;
 
 	Board *playBoard;
@@ -28,10 +29,9 @@ int main(){
 	
 	//playBoard->emptyBoard();
 	//oppBoard->emptyBoard();
+	cout << "Welcome to Battleship!" << endl << "The rules are simple: all entries should be lowercase and one character long" << endl;
 
 	while(play == 'y' && !win){
-		cout << "Welcome to Battleship!" << endl << "The rules are simple: all entries should be lowercase and one character long" << endl;
-		//printf("Welcome to the game!" << endl << Rules: All entries should be lowercase one character long.\n");
 		cout << endl << "Your board: " << endl;
 		playBoard->emptyBoard(); //player's Board
 		cout << endl << "Opponent's board: " << endl;
@@ -40,10 +40,13 @@ int main(){
 		printf("Please place your Carrier (5 spaces long). \n\tEnter row charater (A-J), single digit column number (0-9), and direction (full word and capitalized, ex. \"North\"): "); 
 		//scanf("%i %i", &xPos, &yPos);
 		//cin >> direction;
-		cin >> xPos >> yPos >> direction;
+		cin >> inputX >> yPos >> direction;
+		xPos = inputX - 65;
 
-		//xPos = 
-		playBoard->placeShip(5, xPos - 65, yPos, direction);
+		printf("the cords are %i, %i.", xPos, yPos);
+		cout << "Facing the " << direction << endl;
+
+		playBoard->placeShip(5, xPos, yPos, direction);
 		playBoard->PrintBoard();
 		cout << endl;
 		win = true; //exit case

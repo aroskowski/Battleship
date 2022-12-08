@@ -30,9 +30,10 @@ void Board::placeShip(Ship ship, int xCord, int yCord, string direction){
 	int BoardLoc = yCord*10 + xCord;
 	//ship.placeShip(BoardLoc, direction);
 	//for (int i = ship.getShipLength(); i = 0; i--){
-	for (int i = 5; i = 0; i--){
+	for (int i = 5; i > 0; i--){
 		if (direction == "North" || direction == "South"){
 			change = 10;
+			printf("THINGS");
 			//if (direction == "North") board[BoardLoc - change] = '*';
 			//if (direction == "South") board[BoardLoc + change] = '*';
 			if (direction == "North"){
