@@ -27,13 +27,23 @@ void Board::emptyBoard(){
 
 void Board::placeShip(Ship ship, int xCord, int yCord, string direction){
 	int change = 0;
-	int BoardLoc = yCord*10 + xCord;
+	int BoardLoc = xCord*10 + yCord;
+	int rowNum2;
+	int rowNum1 = BoardLoc/10;
 	//ship.placeShip(BoardLoc, direction);
 	//for (int i = ship.getShipLength(); i = 0; i--){
 	for (int i = 5; i > 0; i--){
+		rowNum2 = BoardLoc/10;
+
+		printf("Calculated Board Location is %i\n", BoardLoc);
+
+		if(BoardLoc < 0 || BoardLoc > 99 ){
+			printf("invalid ship placement");
+			return;
+		}
 		if (direction == "North" || direction == "South"){
 			change = 10;
-			printf("THINGS");
+			printf("change = 10\n");
 			//if (direction == "North") board[BoardLoc - change] = '*';
 			//if (direction == "South") board[BoardLoc + change] = '*';
 			if (direction == "North"){
@@ -46,9 +56,22 @@ void Board::placeShip(Ship ship, int xCord, int yCord, string direction){
 			}
 		}
 		if (direction == "East" || direction == "West"){
+			if( rowNum1 != rowNum2){
+				printf("invalid board placement");
+				return;
+			}
 			change = 1;
-			if (direction == "East") board[BoardLoc + change] = '*';
-			if (direction == "West") board[BoardLoc - change] = '*';
+			printf("change = 1\n");
+			if (direction == "East"){
+				printf("east boi\n");
+				board[BoardLoc] = '*';
+				BoardLoc += change;
+			}
+			if (direction == "West"){
+				printf("WEST WORLD\n");
+				board[BoardLoc] = '*';
+				BoardLoc -= change;
+			}
 		}
 	}
 
