@@ -6,11 +6,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
 void PrintBoard();
 bool PlayerTurn(int);
+int RandomNumber();
 
 int main(){
 	bool win = false;
@@ -18,6 +20,7 @@ int main(){
 	int xPos, yPos;
 	char inputX;
 	string direction;
+	int Turns = 0;
 
 	Board *playBoard;
 	playBoard = new Board();
@@ -37,7 +40,9 @@ int main(){
 		cout << endl << "Opponent's board: " << endl;
 		oppBoard->emptyBoard(); //opponent's Board
 		cout << endl;
-		
+	
+		//Setup board - place all ships. 
+		//NEED TO FIX -- Hard coded to only one board!!!
 		do{
 			printf("Please place your Carrier (5 spaces long). \n\tEnter row charater (A-J), single digit column number (0-9), and direction (full word and capitalized, ex. \"North\"): "); 
 			//scanf("%i %i", &xPos, &yPos);
@@ -51,56 +56,56 @@ int main(){
 			//playBoard->placeShip(5, xPos, yPos, direction);
 			//playBoard->PrintBoard();
 		}while(!playBoard->placeShip(5, xPos, yPos, direction));
+		while(!oppBoard->placeShip(5, RandomNumber(), RandomNumber(), "East")){
+			continue;
+		}
 		
+		printf("\nYour board: \n");
 		playBoard->PrintBoard();
-		
-		//Play the game!
-		printf("Please select your target.\n\tEnter row character (A-J) and single digit column number (0-9)");
-		cin >> inputX >> yPos;
-		xPos = inputX - 65;
+		printf("\nOpponent's board: \n");
+		oppBoard->PrintBoard();
+		//printf("H\n");
 
-		printf("the target cords are %i, %i.", xPos, yPos);
+		printf("what");
+		cout << "help";
+
+
+		//Play the game! - Fire shots till there is a winner. 
+		while(Turns < 100 && !win){
+			printf("Turn: %i", Turns);
+			if(PlayerTurn(Turns)){
+				printf("Please select your target.\n\tEnter row character (A-J) and single digit column number (0-9): ");
+				cin >> inputX >> yPos;
+				xPos = inputX - 65;
+
+				printf("The target cords are %i, %i.\n", xPos, yPos);
+			
 		
-		playBoard->shotFired(xPos, yPos);
+				playBoard->shotFired(xPos, yPos);
+				playBoard->PrintBoard();
+			}
+			else{
+				oppBoard->shotFired(RandomNumber(), RandomNumber());
+				oppBoard->PrintBoard();
+			}
+
+			Turns++;
+		}
 
 
 		cout << endl;
 		win = true; //exit case
 	}
 
-	//when I did ./battleship, I got a core dump, so I thought this would help...I was wrong
 	delete playBoard;
 	delete oppBoard;
 
 	return 0;
 }
 
-/*
-void PrintBoard(){
-	vector<char> Board(100, 'O'); //temp board of all empty spaces !!!
-
-	printf("   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n");
-	printf("============================================\n");
-	for(int i = 0; i < 10; i++){
-		printf("%c  |", 65+i); //
-		for(int j = 0; j < 10; j++){
-			printf(" %c |", Board[10*i+j]);
-			
-			//   Here we will print our board map/vector
-			//   - are we printing both sets of ships of just players?
-		}
-		printf("\n");
-	}    
-}*/
-
 bool PlayerTurn(int turn){
 	bool playerTurn = false;
 	while (turn < 100) {
-		//  int r = 0;
-		//  int c = 0;
-		//  int count = 0;
-		//  char c1 = 't';
-
 		if (turn % 2 == 0){
 			playerTurn = true;
 		}
@@ -108,4 +113,11 @@ bool PlayerTurn(int turn){
 	return playerTurn;
 	//cant return in a while loop since you may never enter the while loop
 }
+
+int RandomNumber(){
+	srand((unsigned) time(NULL));
+	return (rand() % 10);
+}
+
+
 

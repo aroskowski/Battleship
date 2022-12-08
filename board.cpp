@@ -63,12 +63,10 @@ bool Board::placeShip(Ship ship, int yCord, int xCord, string direction){
 			change = 1;
 			printf("change = 1\n");
 			if (direction == "East"){
-				printf("east boi\n");
 				board[BoardLoc] = '*';
 				BoardLoc += change;
 			}
 			if (direction == "West"){
-				printf("WEST WORLD\n");
 				board[BoardLoc] = '*';
 				BoardLoc -= change;
 			}
