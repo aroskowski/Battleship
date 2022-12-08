@@ -18,7 +18,7 @@ class Board{
 		void placeShip(Ship, int, int, std::string); //known size ship
 				//give location ship start position, ship size and direction
 				//error check invalid position on board and direction strings
-		void shotFired(int); // locate user shot and check if hit/miss
+		void shotFired(int, int); // locate user shot and check if hit/miss
 				//error check invalid position or repeated position
 				//call hitShip if ship sunk print a death message for ship
 						//decriment numShips;

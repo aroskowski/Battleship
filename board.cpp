@@ -25,9 +25,9 @@ void Board::emptyBoard(){
 	PrintBoard();
 }
 
-void Board::placeShip(Ship ship, int xCord, int yCord, string direction){
-	int change = 0;
-	int BoardLoc = xCord*10 + yCord;
+void Board::placeShip(Ship ship, int yCord, int xCord, string direction){
+	int change = 0, count = 0;
+	int BoardLoc = yCord*10 + xCord;
 	int rowNum2;
 	int rowNum1 = BoardLoc/10;
 	//ship.placeShip(BoardLoc, direction);
@@ -73,11 +73,31 @@ void Board::placeShip(Ship ship, int xCord, int yCord, string direction){
 				BoardLoc -= change;
 			}
 		}
+		count++;
+		if (BoardLoc < 0 || BoardLoc > 99){
+			for (int j = 0; j < count; j++){
+				board[BoardLoc] = '-';
+				if (direction == "North"){
+					change = 10;
+					BoardLoc += change;
+				} else if (direction == "South"){
+					change = 10;
+					BoardLoc -= change;
+				} else if (direction == "East"){
+					change = 1;
+					BoardLoc -= change;
+				} else if (direction == "West"){
+					change = 1;
+					BoardLoc += change;
+				}
+			}
+		}
 	}
 
 }
 
-void Board::shotFired(int BoardLoc){ 
+void Board::shotFired(int yPos, int xPos){
+	int BoardLoc = yPos*10 + xPos;
 	if(board[BoardLoc] == '*'){
 		board[BoardLoc] = 'X';
 
@@ -88,7 +108,7 @@ void Board::shotFired(int BoardLoc){
 }
 
 void Board::PrintBoard(){
-//	vector<char> Board(100, 'O'); //temp board of all empty spaces !!!
+	//	vector<char> Board(100, 'O'); //temp board of all empty spaces !!!
 
 	printf("   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n");
 	printf("============================================\n");
@@ -97,7 +117,7 @@ void Board::PrintBoard(){
 		for(int j = 0; j < 10; j++){
 			//printf(" %c |", Board[10*i+j]);
 			printf(" %c |", board[10*i+j]);	
-			
+
 			/*
 			   Here we will print our board map/vector
 			   - are we printing both sets of ships of just players?
