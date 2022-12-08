@@ -48,6 +48,17 @@ int main(){
 
 		playBoard->placeShip(5, xPos, yPos, direction);
 		playBoard->PrintBoard();
+		
+		//Play the game!
+		printf("Please select your target.\n\tEnter row character (A-J) and single digit column number (0-9)");
+		cin >> inputX >> yPos;
+		xPos = inputX - 65;
+
+		printf("the target cords are %i, %i.", xPos, yPos);
+		
+		playBoard->shotFired(xPos, yPos);
+
+
 		cout << endl;
 		win = true; //exit case
 	}
