@@ -1,0 +1,48 @@
+What went well:
+
+	Collaboration; frequent Discord calls and updates; no one person did the majority of the work - no slackers here 
+
+	Understanding of the assignment and set goals
+
+	Overall coding flow went well 
+
+	When we did get Github to work, everything flowed well with pushing and pulling
+
+	Austin converted to being a printf() user
+
+What did not go well:
+
+	Austin's C++ compiler...R.I.P. - still unresolved to this day. The bin file containing necessary include statements was empty
+	-every command Austin needed was non-existent
+
+	Github setup took a very long time 
+
+	Given the time it took to try to get the compiler to work and to get Github up and running, we did not get to all of the functions we had wanted to write
+	-our code does, indeed, compile, but it is non-terminating for unknown reasons (would like an explanation as to why)
+	
+	// Austin converted to being a printf() user - he failed :'(...hello darkness, my old friend...I've come to talk with you again
+
+What we have learned:
+
+	Austin still doesn't like prinf(), but he realizes he'll need to use it in the future
+
+	TA assistance during lab is often overlooked and incredibly helpful, and we wish we had more of that for this lab
+
+	Battleship is more complicated than it looks - lots of error checking that needs to happen
+
+	A vector was the right choice for displaying the board
+
+	Storing the ships' locations in the display board vector was not the best
+	-we would have wanted the ship class or another vector to store those locations
+
+Why we should get full discretionary points:
+
+	We put in 2.5x the amount of work required for this project (see log.txt)
+
+	We used a vector, we did not have any memory leaks with new and delete
+
+	Our code was decently organized (between different files); we need some more time with it, as well as some guidance
+	-it was also well-commented
+
+
+
